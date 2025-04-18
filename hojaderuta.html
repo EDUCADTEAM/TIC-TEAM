@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hoja de Ruta Semanal - EDUCAD</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f4f6f9;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #34495e;
+      color: #fff;
+    }
+
+    tr:nth-child(even) {
+      background-color: #ecf0f1;
+    }
+
+    .estado {
+      font-weight: bold;
+      text-align: center;
+    }
+
+    .pendiente { color: #e74c3c; }
+    .progreso  { color: #f39c12; }
+    .completado { color: #27ae60; }
+
+    .nota {
+      margin-top: 30px;
+      font-size: 14px;
+      color: #555;
+    }
+
+    .btn-completar {
+      background-color: #27ae60;
+      color: white;
+      border: none;
+      padding: 6px 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-completar:hover {
+      background-color: #1f8a4d;
+    }
+
+    .tarea-detalle {
+      display: none;
+      margin-top: 30px;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 8px;
+      border-left: 4px solid #2980b9;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    }
+  </style>
+</head>
+<body>
+  <h1>📅 Hoja de Ruta Semanal – Equipo de Desarrollo EDUCAD</h1>
+
+  <p><strong>Semana del:</strong> 15/04/2025 – 19/04/2025</p>
+  <p><strong>Responsable general:</strong> Coordinador Técnico</p>
+  <p><strong>Objetivo general:</strong> Implementar el módulo de registro y validación de usuarios</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Día</th>
+        <th>Tarea</th>
+        <th>Responsable</th>
+        <th>Resultado Esperado</th>
+        <th>Estado</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr onclick="mostrarDetalle('detalle1')">
+        <td>Lunes</td>
+        <td>Definir estructura del backend de gestión de usuarios</td>
+        <td>Juan</td>
+        <td>Endpoints creados y documentados</td>
+        <td class="estado pendiente">🔴 Pendiente</td>
+        <td><button class="btn-completar" onclick="event.stopPropagation(); marcarCompletado(this)">Completar</button></td>
+      </tr>
+      <tr onclick="mostrarDetalle('detalle2')">
+        <td>Martes</td>
+        <td>Diseñar interfaz de login y registro</td>
+        <td>Lucía</td>
+        <td>Prototipo funcional en Figma</td>
+        <td class="estado progreso">🟡 En progreso</td>
+        <td><button class="btn-completar" onclick="event.stopPropagation(); marcarCompletado(this)">Completar</button></td>
+      </tr>
+      <tr onclick="mostrarDetalle('detalle3')">
+        <td>Miércoles</td>
+        <td>Integrar login con base de datos</td>
+        <td>Pedro</td>
+        <td>Login funcional con validaciones</td>
+        <td class="estado pendiente">🔴 Pendiente</td>
+        <td><button class="btn-completar" onclick="event.stopPropagation(); marcarCompletado(this)">Completar</button></td>
+      </tr>
+      <tr onclick="mostrarDetalle('detalle4')">
+        <td>Jueves</td>
+        <td>Validación de formulario de matrícula</td>
+        <td>Marta</td>
+        <td>Campos validados correctamente</td>
+        <td class="estado pendiente">🔴 Pendiente</td>
+        <td><button class="btn-completar" onclick="event.stopPropagation(); marcarCompletado(this)">Completar</button></td>
+      </tr>
+      <tr onclick="mostrarDetalle('detalle5')">
+        <td>Viernes</td>
+        <td>Pruebas internas + documentación</td>
+        <td>Todo el equipo</td>
+        <td>Documentación del módulo finalizada</td>
+        <td class="estado pendiente">🔴 Pendiente</td>
+        <td><button class="btn-completar" onclick="event.stopPropagation(); marcarCompletado(this)">Completar</button></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div id="detalle1" class="tarea-detalle">
+    <h3>Detalles de la Tarea (Lunes)</h3>
+    <p>Responsable: Juan</p>
+    <p>Descripción: Crear endpoints para registro, login, recuperación de contraseña y validación de usuarios. Documentar en Postman.</p>
+  </div>
+
+  <div id="detalle2" class="tarea-detalle">
+    <h3>Detalles de la Tarea (Martes)</h3>
+    <p>Responsable: Lucía</p>
+    <p>Descripción: Crear los prototipos visuales de las pantallas de login y registro utilizando Figma. Validar usabilidad con el equipo UX.</p>
+  </div>
+
+  <div id="detalle3" class="tarea-detalle">
+    <h3>Detalles de la Tarea (Miércoles)</h3>
+    <p>Responsable: Pedro</p>
+    <p>Descripción: Conectar la lógica de login con la base de datos usando JWT para autenticación segura.</p>
+  </div>
+
+  <div id="detalle4" class="tarea-detalle">
+    <h3>Detalles de la Tarea (Jueves)</h3>
+    <p>Responsable: Marta</p>
+    <p>Descripción: Validar campos del formulario de matrícula en frontend y backend. Mostrar errores con mensajes claros.</p>
+  </div>
+
+  <div id="detalle5" class="tarea-detalle">
+    <h3>Detalles de la Tarea (Viernes)</h3>
+    <p>Responsables: Todo el equipo</p>
+    <p>Descripción: Realizar pruebas funcionales, unitarias y escribir documentación técnica del módulo de autenticación.</p>
+  </div>
+
+  <div class="nota">
+    <p>⚠️ Las tareas deben marcarse como: 🔴 Pendiente | 🟡 En progreso | 🟢 Completado</p>
+    <p>✔️ Reunión de revisión el viernes a las 17:00. Usar Git para registrar los avances con mensajes claros.</p>
+    <p>📬 Para dudas, contactar por Slack o al correo: soporte@educad.gq</p>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const estadosGuardados = JSON.parse(localStorage.getItem("estadosTareas")) || {};
+
+      document.querySelectorAll("tbody tr").forEach((fila, index) => {
+        const estadoCelda = fila.querySelector(".estado");
+        if (estadosGuardados[index]) {
+          estadoCelda.textContent = estadosGuardados[index].emoji;
+          estadoCelda.className = `estado ${estadosGuardados[index].clase}`;
+        }
+      });
+    });
+
+    function marcarCompletado(boton) {
+      const fila = boton.closest("tr");
+      const celdaEstado = fila.querySelector(".estado");
+      celdaEstado.textContent = '🟢 Completado';
+      celdaEstado.className = 'estado completado';
+      guardarEstados();
+    }
+
+    function guardarEstados() {
+      const estados = {};
+      document.querySelectorAll("tbody tr").forEach((fila, index) => {
+        const estadoCelda = fila.querySelector(".estado");
+        estados[index] = {
+          emoji: estadoCelda.textContent,
+          clase: estadoCelda.classList.contains("completado") ? "completado" :
+                 estadoCelda.classList.contains("progreso") ? "progreso" : "pendiente"
+        };
+      });
+      localStorage.setItem("estadosTareas", JSON.stringify(estados));
+    }
+
+    function mostrarDetalle(id) {
+      const detalles = document.querySelectorAll('.tarea-detalle');
+      detalles.forEach(div => div.style.display = 'none');
+      const detalle = document.getElementById(id);
+      if (detalle) detalle.style.display = 'block';
+    }
+  </script>
+</body>
+</html>
